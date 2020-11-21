@@ -22,20 +22,20 @@ fi
 # ruta raíz del servidor web
 WEB_ROOT="/var/www"
 # ruta de la aplicación
-APP_PATH="$WEB_ROOT/utn-devops-app"
+APP_PATH="$WEB_ROOT/practica01"
 
 # Se elimina el sitio configurado por defecto
 sudo rm /etc/nginx/sites-enabled/default
 
 # Se copia el archivo de configuracion del sitio
-sudo cp /vagrant/config/utn-devops-app /etc/nginx/sites-enabled/utn-devops-app
+sudo cp /vagrant/config/utn-devops-app /etc/nginx/sites-enabled/practica01
 
 # Se crea el directorio del sitio
 sudo mkdir $APP_PATH
 
 # Se clona la aplicación del repo
 cd $WEB_ROOT
-sudo git clone https://github.com/Fichen/utn-devops-app.git
+sudo git clone https://github.com/equipo2-utndevops/practica01.git
 cd $APP_PATH
 sudo git checkout unidad-1
 

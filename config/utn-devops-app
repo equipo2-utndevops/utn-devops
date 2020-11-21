@@ -4,7 +4,7 @@ server {
 
        server_name example.ubuntu.com;
 
-       root /var/www/utn-devops-app/public;
+       root /var/www/practica01;
        index index.html;
 
        location / {
