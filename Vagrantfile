@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     web.vm.box = "ubuntu/bionic64"
 	
 	#ejecutar localmente vagrant plugin install vagrant-disksize
-    web.disksize.size = "10GB"
+    #web.disksize.size = "10GB"
     web.vm.hostname = "web"
  
     # Forward de puertos
