@@ -32,7 +32,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 sudo systemctl start docker
-sudo chkconfig enable docker
+sudo systemctl enable docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
@@ -46,9 +46,9 @@ mkdir -m 777 -p $DB
 
 #COPY APP FILES
 cd $APP
-git clone -b unidad-2 https://github.com/equipo2-utndevops/webapp
-mv webapp/* .
-rm -rf webapp
+git clone -b unidad-2 https://github.com/equipo2-utndevops/webapp .
+#mv webapp/* .
+#rm -rf webapp
 
 #COPY FILES AND RUN DOCKER-COMPOSE
 cd $SHARED
