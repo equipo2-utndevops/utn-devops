@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#ENV VARIABLES 
+export APP="/data/app/"
+export DB="/data/db/"
+export SHARED="/vagrant/"
 # update
 sudo apt-get update -y
 
@@ -32,14 +36,29 @@ sudo chkconfig enable docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+#INSTALL MYSQL CLIENT
+sudo apt install -y mysql-client-core-5.7
+
+#CREATE DOCKER VOLUME DIRECTORIES
+mkdir -m 777 -p $APP
+mkdir -m 777 -p $DB
+
+
+#COPY APP FILES
+cd $APP
+git clone -b unidad-2 https://github.com/equipo2-utndevops/webapp
+mv webapp/* .
+rm -rf webapp
 
 #COPY FILES AND RUN DOCKER-COMPOSE
-cp /vagrant/Dockerfile .
+cd $SHARED
+cp .htaccess $APP
 docker build . -t php-apache-mysql
-cp /vagrant/index.php .
-cp /vagrant/docker-compose.yml .
-sudo docker-compose up
+sudo docker-compose up -d
 
+#ADD TABLE
+cd $SHARED
+mysql -h 127.0.0.1 -u root -proot  mysql<seeder.sql
 
 # # Se clona la aplicación del repo
 # cd $WEB_ROOT
