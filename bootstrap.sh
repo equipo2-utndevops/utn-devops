@@ -52,7 +52,6 @@ rm -rf webapp
 
 #COPY FILES AND RUN DOCKER-COMPOSE
 cd $SHARED
-cp .htaccess $APP
 docker build . -t php-apache-mysql
 sudo docker-compose up -d
 
