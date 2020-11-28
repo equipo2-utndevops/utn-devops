@@ -41,6 +41,11 @@ cp /vagrant/docker-compose.yml .
 sudo docker-compose up
 
 
+# # Se clona la aplicación del repo
+# cd $WEB_ROOT
+# sudo git clone https://github.com/equipo2-utndevops/webapp.git
+# cd $APP_PATH
+# sudo git checkout unidad-2
 
 
 
@@ -51,9 +56,3 @@ sudo docker-compose up
 
 # # Se crea el directorio del sitio
 # sudo mkdir $APP_PATH
-
-# # Se clona la aplicación del repo
-# cd $WEB_ROOT
-# sudo git clone https://github.com/equipo2-utndevops/practica01.git
-# cd $APP_PATH
-# sudo git checkout unidad-1
