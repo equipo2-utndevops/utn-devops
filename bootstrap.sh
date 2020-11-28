@@ -34,10 +34,10 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 
 #COPY FILES AND RUN DOCKER-COMPOSE
-#cp /vagrant/Dockerfile .
+cp /vagrant/Dockerfile .
 docker build . -t php-apache-mysql
-#cp /vagrant/index.php .
-#cp /vagrant/docker-compose.yml .
+cp /vagrant/index.php .
+cp /vagrant/docker-compose.yml .
 sudo docker-compose up
 
 
