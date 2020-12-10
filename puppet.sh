@@ -5,12 +5,12 @@ export BASE="/home/vagrant"
 #ENABLE REPO NECESARY FOR PUPPET
 sudo add-apt-repository universe
 sudo add-apt-repository multiverse
-sudo apt update -y
+sudo apt-get update -y
 
 #ADD PUPPET REPO
 wget https://apt.puppetlabs.com/puppet6-release-bionic.deb
 sudo dpkg -i puppet6-release-bionic.deb
-sudo apt update
+sudo apt-get update
 rm -f puppet6-release-bionic.deb
 
 #INSTALL PUPPET SERVER AND AGENT

@@ -6,7 +6,7 @@ sudo apt-get update -y
 # -Desinstalar el software instalado de la práctica 01.
 #  des-instala nginx
 sudo apt-get remove --purge -y nginx
-sudo apt autoremove -y
+sudo apt-get autoremove -y
 
 # Se genera una partición swap. Previene errores de falta de memoria
 if [ ! -f "/swapdir/swapfile" ]; then
