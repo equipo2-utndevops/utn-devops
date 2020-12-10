@@ -35,7 +35,8 @@ git clone -b unidad-4 https://github.com/equipo2-utndevops/webapp
 cd webapp
 sudo curl -sS https://getcomposer.org/installer | php
 sudo chmod -R 777 storage bootstrap/cache
-php composer.phar update -n -q
+cp .env.example .env
+sudo php composer.phar update -n -q
 sudo php composer.phar clear
 sudo php composer.phar dump-autoload
 sudo php artisan key:generate
