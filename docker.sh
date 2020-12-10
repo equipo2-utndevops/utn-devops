@@ -29,10 +29,14 @@ sudo apt-get install php-xml -y
 mkdir -m 777 -p $APP
 mkdir -m 777 -p $DB
 
-#clonamos el repo y lo iniciamos
+#COPY APP FILES
 cd $APP
 git clone -b unidad-4 https://github.com/equipo2-utndevops/webapp
-cd webapp
+shopt -s dotglob
+mv webapp/* .
+rm -rf webapp
+
+#inicializamos laravel 
 sudo curl -sS https://getcomposer.org/installer | php
 sudo chmod -R 777 storage bootstrap/cache
 cp .env.example .env
@@ -40,11 +44,9 @@ sudo php composer.phar update -n -q
 sudo php composer.phar clear
 sudo php composer.phar dump-autoload
 sudo php artisan key:generate
-#COPY APP FILES
-cd ..
-shopt -s dotglob
-mv webapp/* .
-rm -rf webapp
+
+#corremos todos los tests
+php vendor/phpunit/phpunit/phpunit
 
 #COPY FILES AND RUN DOCKER-COMPOSE
 cd $SHARED
