@@ -45,8 +45,8 @@ sudo php composer.phar clear
 sudo php composer.phar dump-autoload
 sudo php artisan key:generate
 
-#corremos todos los tests
-php vendor/phpunit/phpunit/phpunit
+#Run Unit Tests
+./vendor/bin/phpunit tests/Unit
 
 #COPY FILES AND RUN DOCKER-COMPOSE
 cd $SHARED
