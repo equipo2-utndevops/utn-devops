@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'git clone -b unidad-4 https://github.com/equipo2-utndevops/webapp.git || true'
                 sh 'cd webapp'
-                sh 'sudo composer install'
+                sh '/usr/local/bin/composer install'
                 sh 'chmod 777 app/bootstrap/cache/'
             }
         }
