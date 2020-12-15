@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh 'find . -path ./webapp/app/vendor -prune -o -name \\*.php -exec php -l "{}" \\;'
                 retry(2) {
-                    sh 'cd webapp && sudo php -dmemory_limit=750M composer.phar update --no-scripts --prefer-dist'
+                    sh 'cd webapp && php -dmemory_limit=750M composer.phar update --no-scripts --prefer-dist'
                 }
             }
         }
