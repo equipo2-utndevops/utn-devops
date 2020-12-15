@@ -4,10 +4,10 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                sh 'git clone -b https://github.com/equipo2-utndevops/webapp || true'
-                sh 'cd webapp && sudo git checkout unidad-4'
-                sh 'cd web-app/app && sudo /usr/local/bin/composer install'
-                sh 'chmod 777 ./webapp/app/bootstrap/cache/'
+                sh 'git clone -b unidad-4 https://github.com/equipo2-utndevops/webapp.git || true'
+                sh 'cd webapp'
+                sh 'sudo /usr/local/bin/composer install'
+                sh 'chmod 777 app/bootstrap/cache/'
             }
         }
         stage('Build') {
