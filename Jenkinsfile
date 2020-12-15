@@ -14,13 +14,13 @@ pipeline {
             steps {
                 sh 'find . -path ./webapp/app/vendor -prune -o -name \\*.php -exec php -l "{}" \\;'
                 retry(2) {
-                    sh 'cd webapp/app && sudo php -dmemory_limit=750M /usr/local/bin/composer update --no-scripts --prefer-dist'
+                    sh 'cd webapp && sudo php -dmemory_limit=750M composer.phar update --no-scripts --prefer-dist'
                 }
             }
         }
         stage('Test') {
             steps {
-                sh './webapp/app/vendor/bin/phpunit -c ./webapp/phpunit.xml'
+                sh './vendor/bin/phpunit tests/Unit'
             }
         }
     }
