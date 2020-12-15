@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './vendor/bin/phpunit tests/Unit'
+                sh './webapp/vendor/bin/phpunit tests/Unit'
             }
         }
     }
